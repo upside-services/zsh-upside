@@ -29,7 +29,7 @@ kcluster() {
 # accept tier and color fetch kubeconfig for cluster
 kfetch() {
   local kubeCluster="$(kcluster "$@")"
-  aws eks update-kubeconfig --name $kubeCluster  # To update your ~/.kube/config
+  aws eks update-kubeconfig --name $kubeCluster --alias $kubeCluster  # To update your ~/.kube/config
 }
 
 # accept tier and color and initiate authenitcated session
