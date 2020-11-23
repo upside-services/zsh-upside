@@ -111,6 +111,9 @@ klogin() {
     select clustername in $(__aws_eks_list_clusters)
     do
       __aws_eks_update_kubeconfig "$clustername"
+      [[ $commands[kubectx] ]] && kubectx
+      [[ $commands[kubens] ]] && kubens
+      [[ $commands[k9s] ]] && k9s
       break
     done
   else
